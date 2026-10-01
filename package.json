@@ -1,0 +1,22 @@
+{
+  "name": "abu-mustafa-ibb",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.cjs",
+    "build": "node scripts/build-worker.mjs",
+    "build:content": "python report.py",
+    "db:generate": "drizzle-kit generate",
+    "test": "node tests/catalog.test.mjs && node tests/requirements.test.mjs && node tests/presentation.test.mjs && node tests/seo.test.mjs",
+    "preview:seo": "node scripts/seo-preview.cjs",
+    "audit:seo": "node scripts/audit-seo.mjs",
+    "audit:seo:public": "node scripts/audit-public-seo.mjs",
+    "test:live-catalog": "node scripts/check-live-catalog.mjs"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.10",
+    "drizzle-orm": "0.45.2",
+    "esbuild": "0.27.3",
+    "miniflare": "4.20260515.0"
+  }
+}

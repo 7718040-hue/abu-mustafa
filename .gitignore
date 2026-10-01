@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+node_modules/
+.local-state/
+.dev.vars
+.env
+.sites-runtime/
+
+.local-state-test-*/
+site-deploy*.tar.gz

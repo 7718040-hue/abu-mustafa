@@ -1,0 +1,1306 @@
+[
+  {
+    "number": 1,
+    "filename": "photo_1_2026-09-10_03-48-39.jpg",
+    "sha256": "fc7867cd33e9eea6c2a529d9e0c94b582495bdbfdd213f983d1f0569417b1266",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-presentation"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 711
+  },
+  {
+    "number": 2,
+    "filename": "photo_2_2026-09-10_03-48-39.jpg",
+    "sha256": "9279222e243d286dc5109bbe29e25b7a792d4915e0c60dca625d908ce4a13ab0",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-cambodian"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 640,
+    "height": 359
+  },
+  {
+    "number": 3,
+    "filename": "photo_3_2026-09-10_03-48-39.jpg",
+    "sha256": "95ff623b4f01953b81a58c3e204b2e37f4af9d2e9fa4eeb9a194d6f2b7515069",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-indian"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 572,
+    "height": 370
+  },
+  {
+    "number": 4,
+    "filename": "photo_4_2026-09-10_03-48-39.jpg",
+    "sha256": "e60067abb3eeac9abcb2e1045c72d5904c1ca7d9f611311f355ad7f976eae0ef",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-laos"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 545,
+    "height": 351
+  },
+  {
+    "number": 5,
+    "filename": "photo_5_2026-09-10_03-48-39.jpg",
+    "sha256": "0eab4b922e0dfc11048a930ad33de8b79392103af6318cf0dfd4f95f0bf1b1eb",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-malaysian"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 548,
+    "height": 372
+  },
+  {
+    "number": 6,
+    "filename": "photo_6_2026-09-10_03-48-39.jpg",
+    "sha256": "3e662301394bf8c1fea0404d147756c00341fa17ed0817b5a13a8fc5a8c26114",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-bags"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 780,
+    "height": 1040
+  },
+  {
+    "number": 7,
+    "filename": "photo_7_2026-09-10_03-48-39.jpg",
+    "sha256": "c0ac8b11da244732aac6fe3ddde641d596efe2a7eb05172a2a37e9b705bffeb8",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "oud-irian"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 720
+  },
+  {
+    "number": 8,
+    "filename": "photo_8_2026-09-10_03-48-39.jpg",
+    "sha256": "36d670353774abb8e58ab0b4e9cee9bd01913a066b41ec9d3d745e0b59e15818",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 1280,
+    "height": 1019
+  },
+  {
+    "number": 9,
+    "filename": "photo_9_2026-09-10_03-48-39.jpg",
+    "sha256": "bd8bfaa160bbb5af1437e1c2e7ad2956e95410c61b03fc3d801ce1597e0020f2",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 10,
+    "filename": "photo_10_2026-09-10_03-48-40.jpg",
+    "sha256": "75ecb1d76220930a3fa6c778fa5ddf93771e9f33f8f72394afabff0fdb7d4cf1",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 11,
+    "filename": "photo_11_2026-09-10_03-48-40.jpg",
+    "sha256": "008ae24639e5a512bce8113f631571a42a95d80b3528e116ede042b74849a0bf",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "ornate-jar"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 747,
+    "height": 1280
+  },
+  {
+    "number": 12,
+    "filename": "photo_12_2026-09-10_03-48-40.jpg",
+    "sha256": "6ac5227cd907d58f0799cc59995904febaa62a072eb3dd2ad35092d807cd1983",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "henna"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1069,
+    "height": 1280
+  },
+  {
+    "number": 13,
+    "filename": "photo_13_2026-09-10_03-48-40.jpg",
+    "sha256": "0592d003acc4769cd794b7bd3f7d10fbb7e6adec91b590206bd94f55753d1923",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 14,
+    "filename": "photo_14_2026-09-10_03-48-40.jpg",
+    "sha256": "5379f1e168a125ce240ce8872f78423768fbf429db412384c2d0958e28aa97dc",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 15,
+    "filename": "photo_15_2026-09-10_03-48-40.jpg",
+    "sha256": "b83bbf5edad442396c534716504739eb66a54a44f56ae79c1d913e930c1883ab",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": 14,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 16,
+    "filename": "photo_16_2026-09-10_03-48-40.jpg",
+    "sha256": "d978741c9febf32af846df7c49baf4b01645afa5a7d5c7caa660c754fa40c856",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-jars"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "number": 17,
+    "filename": "photo_17_2026-09-10_03-48-40.jpg",
+    "sha256": "c356beaee557f6711f71febba48d494637950d66233c8ccaa5822e750f75890a",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "liquid-incense"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 905,
+    "height": 1280
+  },
+  {
+    "number": 18,
+    "filename": "photo_18_2026-09-10_03-48-40.jpg",
+    "sha256": "ddd3a0aca4bd3ed0d5b36a3aceff4a2018a91441980b1429a2304e79905f1a6a",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 1000,
+    "height": 855
+  },
+  {
+    "number": 19,
+    "filename": "photo_19_2026-09-10_03-48-40.jpg",
+    "sha256": "1dc97c5ca801b8f8e54a1475dcc8f87bac7dbaa73c82b2c5f422430ed8bf4adb",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "domiss-hair-mist"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1196,
+    "height": 1280
+  },
+  {
+    "number": 20,
+    "filename": "photo_20_2026-09-10_03-48-40.jpg",
+    "sha256": "7adfa8d323be38b93e0ad6b7912d396151bba949a151ffe887d531d3be24aacb",
+    "classification": "مستبعد من واجهة المتجر",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "صورة جلدية وليست منتجًا محددًا",
+    "width": 600,
+    "height": 400
+  },
+  {
+    "number": 21,
+    "filename": "photo_21_2026-09-10_03-48-40.jpg",
+    "sha256": "19b455acb73cd30cd684da60dbb75c21bab552c6ec625a78fe09789b08c95de2",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "mishat"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "number": 22,
+    "filename": "photo_22_2026-09-10_03-48-40.jpg",
+    "sha256": "2fd4b9f9e94e8f1eb123dc687cbec53661f949efd1fd028e94e5c01d1d4700d1",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "amazon-flowers"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 576,
+    "height": 1280
+  },
+  {
+    "number": 23,
+    "filename": "photo_23_2026-09-10_03-48-40.jpg",
+    "sha256": "e944ff173fcdd30387ff39c21ba3ffef74cd681bd9a4af0b25b4b2ee296334db",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "mixing-tools"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 806,
+    "height": 1280
+  },
+  {
+    "number": 24,
+    "filename": "photo_24_2026-09-10_03-48-40.jpg",
+    "sha256": "4221027fcf279e1bad47b9704d076cb4d711033ede59c291bea95486890d6259",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "musk-collection"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1022
+  },
+  {
+    "number": 25,
+    "filename": "photo_25_2026-09-10_03-48-40.jpg",
+    "sha256": "f554f4450c5b542e3ce8f4b9a702368687009ad266eb6f054739e1f1aea22978",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 1135,
+    "height": 1280
+  },
+  {
+    "number": 26,
+    "filename": "photo_26_2026-09-10_03-48-40.jpg",
+    "sha256": "735f6e4fd7ad0d138b9b65e176be48a75310e072473807122308f111e8a0cd0c",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "flower-soap"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1280,
+    "height": 576
+  },
+  {
+    "number": 27,
+    "filename": "photo_27_2026-09-10_03-48-40.jpg",
+    "sha256": "529ef6dfdbcd836eb70e940ff235160a3f0b6259a08b5e96a643b745794d1bd0",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "perfume-selection"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 28,
+    "filename": "photo_28_2026-09-10_03-48-40.jpg",
+    "sha256": "081222b4b35bce6c303e3afc29e56cc9070bb7a24ec6f05c45e9140399ab045e",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "decorative-sprays"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1063
+  },
+  {
+    "number": 29,
+    "filename": "photo_29_2026-09-10_03-48-40.jpg",
+    "sha256": "cd5da0ef01bd4e4c817d59d95790b55d2c4f692e3d4110b75874a7e78baaaca4",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 810,
+    "height": 1080
+  },
+  {
+    "number": 30,
+    "filename": "photo_30_2026-09-10_03-48-40.jpg",
+    "sha256": "1d90cc3d6d2d1fe1a0fe316a9de1a4effbc45c7419194826f50b9004c01fa26a",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "liquid-incense"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 905,
+    "height": 1280
+  },
+  {
+    "number": 31,
+    "filename": "photo_31_2026-09-10_03-48-40.jpg",
+    "sha256": "cef3e2479d50312f167ee3b39941b00d7430b1ef67cc92e23cd2279c6bc072fc",
+    "classification": "مستبعد من واجهة المتجر",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "صورة بخاخ طبي؛ خارج كتالوج العطور",
+    "width": 350,
+    "height": 350
+  },
+  {
+    "number": 32,
+    "filename": "photo_32_2026-09-10_03-48-40.jpg",
+    "sha256": "2020aba2ce6b4b49352422312fa6b49681d0ded5462cb721cd433a20d98a7e77",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "imtenan-soap"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 823
+  },
+  {
+    "number": 33,
+    "filename": "photo_33_2026-09-10_03-48-40.jpg",
+    "sha256": "2dda62021958d294fe33e2cb1517db4de18aa1ce4e017ea51d5aea9c9787e4d3",
+    "classification": "هوية المركز",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة هوية؛ لا تعامل كمنتج مستقل",
+    "width": 1000,
+    "height": 954
+  },
+  {
+    "number": 34,
+    "filename": "photo_34_2026-09-10_03-48-40.jpg",
+    "sha256": "8ee0cd63f2eae6b057674394bc6daf96f0e96ed7c8f20bf233d44e283e94adb6",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "golden-perfumes"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 35,
+    "filename": "photo_35_2026-09-10_03-48-40.jpg",
+    "sha256": "10fc8159eda40c821fbf70f2c0d7d45c83f13fd63f5adc794d7d372572efbad2",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "number": 36,
+    "filename": "photo_36_2026-09-10_03-48-40.jpg",
+    "sha256": "068a98aefb871b3c647d0b461f207318d8f3a993a8f2a21dbbc849f6e6495013",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "akhdarin"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "number": 37,
+    "filename": "photo_37_2026-09-10_03-48-40.jpg",
+    "sha256": "cf5977345b3ef28b7142b2c451b76fc0853448a927dc36ac3f7062e0e8b2e746",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 999
+  },
+  {
+    "number": 38,
+    "filename": "photo_38_2026-09-10_03-48-40.jpg",
+    "sha256": "25336de7ef4d63a854ff10c6877309c817056a74804203ea9a89bb2c843777c9",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 607,
+    "height": 1080
+  },
+  {
+    "number": 39,
+    "filename": "photo_39_2026-09-10_03-48-40.jpg",
+    "sha256": "2aa32531994e338b60a3cc26132e668249310028faaf69062fb56d5eee503546",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "كتالوج عبوات يتضمن أسعارًا تاريخية؛ ينتظر اعتماد الأسعار",
+    "width": 904,
+    "height": 1280
+  },
+  {
+    "number": 40,
+    "filename": "photo_40_2026-09-10_03-48-40.jpg",
+    "sha256": "e5745bf19ea364376d4e07ebfd13ee4de0ce30f1880f7199520524172d325e30",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "كتالوج عبوات يتضمن أسعارًا تاريخية؛ ينتظر اعتماد الأسعار",
+    "width": 904,
+    "height": 1280
+  },
+  {
+    "number": 41,
+    "filename": "photo_41_2026-09-10_03-48-40.jpg",
+    "sha256": "1fe106147bf278a35d25c10f6cfa7ec4eb6e7ec60436cc6295d2503337c4f0f9",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "rebondir"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "number": 42,
+    "filename": "photo_42_2026-09-10_03-48-40.jpg",
+    "sha256": "04d6833a0356c583f69b150aa921361ca2cf8bd1d11f597781dff8036c811f74",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-jars"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 607,
+    "height": 1080
+  },
+  {
+    "number": 43,
+    "filename": "photo_43_2026-09-10_03-48-40.jpg",
+    "sha256": "0ace2b13927487e57c92606e25ca9d73aa603446a43359b6ea6ec58e0b18035e",
+    "classification": "مستبعد من واجهة المتجر",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "حملة هدايا قديمة؛ لا تُعرض كعرض ساري",
+    "width": 1280,
+    "height": 905
+  },
+  {
+    "number": 44,
+    "filename": "photo_44_2026-09-10_03-48-40.jpg",
+    "sha256": "c321939eab0673b9cf72bc0e27c5d1dc60a8bd147f2284bc7c742e7ec2519fe6",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-jars"
+    ],
+    "duplicate_of": 42,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 607,
+    "height": 1080
+  },
+  {
+    "number": 45,
+    "filename": "photo_45_2026-09-10_03-48-40.jpg",
+    "sha256": "9d158d634bd05a1a23c7d5ee7e95a0044776d62c801b64a3cef96bd5cc792cdb",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 607,
+    "height": 1080
+  },
+  {
+    "number": 46,
+    "filename": "photo_46_2026-09-10_03-48-40.jpg",
+    "sha256": "76a24bd37e6dc288fadc81bb737e1d5521b178ae22248a79cd1841f7be059f7b",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "clear-soap"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 548
+  },
+  {
+    "number": 47,
+    "filename": "photo_47_2026-09-10_03-48-40.jpg",
+    "sha256": "a87164a8a2e1e2c2e7e7a9b891f044c8644b21c590ffe876fd20d5937d6477b3",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "reed-diffusers"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 1064
+  },
+  {
+    "number": 48,
+    "filename": "photo_48_2026-09-10_03-48-40.jpg",
+    "sha256": "f0f78ba5bdd983db2ead22afc860e99a805b5e0a56347129c0aad18c2a585266",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 813
+  },
+  {
+    "number": 49,
+    "filename": "photo_49_2026-09-10_03-48-40.jpg",
+    "sha256": "0ac17fb0e2352fd016b91192d12c5124704b7957dedb3a2a9f9d4d570d3fe4d0",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "perfume-selection"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1030,
+    "height": 967
+  },
+  {
+    "number": 50,
+    "filename": "photo_50_2026-09-10_03-48-40.jpg",
+    "sha256": "68ac858617a0f25c63a0e73219dbb0c51d390b7ad84d90df8faa74a3067e0421",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "powder-care"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 51,
+    "filename": "photo_51_2026-09-10_03-48-40.jpg",
+    "sha256": "a769f69ffebb2d8ac258fef0d8a58bf35316a0d51c9ddee135b0cdfd51ecdf03",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "clear-soap"
+    ],
+    "duplicate_of": 46,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 612
+  },
+  {
+    "number": 52,
+    "filename": "photo_52_2026-09-10_03-48-40.jpg",
+    "sha256": "feaff5aec8d1fc75f13c83964bf39d1ad2c018138908c3b2f079052223d95366",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "jawi-yellow"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 883,
+    "height": 1280
+  },
+  {
+    "number": 53,
+    "filename": "photo_53_2026-09-10_03-48-40.jpg",
+    "sha256": "14c0c173e9f9d71f0d914793f8aa99522e635026624ef233b331ba98a705ccb8",
+    "classification": "هوية المركز",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة هوية؛ لا تعامل كمنتج مستقل",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "number": 54,
+    "filename": "photo_54_2026-09-10_03-48-40.jpg",
+    "sha256": "a74d6cc84ce6467b819b9b4e2d22cb10f0a1a0f8b5faf1f2f71c08ba54a497c6",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "gold-glass"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 1136
+  },
+  {
+    "number": 55,
+    "filename": "photo_55_2026-09-10_03-48-40.jpg",
+    "sha256": "3fed74d1c95886ab8f06b07ece6be3b7d3008197fa08947c81e93f2a37fd444b",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": 9,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "number": 56,
+    "filename": "photo_56_2026-09-10_03-48-40.jpg",
+    "sha256": "f71ba893613d8c6427cec7bb1af3c4952b877b3d48e774b769df51243f872c27",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 562,
+    "height": 1000
+  },
+  {
+    "number": 57,
+    "filename": "photo_57_2026-09-10_03-48-40.jpg",
+    "sha256": "f2524997423d761bfdafa835eed32607b21d1f224fefb9aa0929180c2abf1cee",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 684,
+    "height": 998
+  },
+  {
+    "number": 58,
+    "filename": "photo_58_2026-09-10_03-48-40.jpg",
+    "sha256": "3503539260f13a26255f849b0b99323316562f8b813e4456e7bf9e3704d3990a",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 486,
+    "height": 1000
+  },
+  {
+    "number": 59,
+    "filename": "photo_59_2026-09-10_03-48-40.jpg",
+    "sha256": "6ae8b3fa38de73c991d24e133e8207b71ec37ffcef5cb29aed5472a44ba8f70c",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 576,
+    "height": 1280
+  },
+  {
+    "number": 60,
+    "filename": "photo_60_2026-09-10_03-48-40.jpg",
+    "sha256": "cfe011a82765a362f21c317af3fdfcf225a093cf83041eca68bd6ce20b979165",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 61,
+    "filename": "photo_61_2026-09-10_03-48-40.jpg",
+    "sha256": "d2bfb494fe6dd0a5a3263ffc7a41d25eaa38ca3382373555de36a455b485f687",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": 60,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 62,
+    "filename": "photo_62_2026-09-10_03-48-40.jpg",
+    "sha256": "d2bfb494fe6dd0a5a3263ffc7a41d25eaa38ca3382373555de36a455b485f687",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": 61,
+    "exact_duplicate_of": 61,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "number": 63,
+    "filename": "photo_63_2026-09-10_03-48-40.jpg",
+    "sha256": "1804c63d829003c03e2e7f38f6c8d522e65b320e9713fc17185a886c9cfc8757",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 767,
+    "height": 1280
+  },
+  {
+    "number": 64,
+    "filename": "photo_64_2026-09-10_03-48-40.jpg",
+    "sha256": "22e328d03fb59f711557ffef1af2cfed1f5becc3e3282f40640e06ec9dae9d30",
+    "classification": "مستبعد من واجهة المتجر",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "نص عام خارج كتالوج المنتجات",
+    "width": 545,
+    "height": 1280
+  },
+  {
+    "number": 65,
+    "filename": "photo_65_2026-09-10_03-48-40.jpg",
+    "sha256": "991e137c624447cfc58834dd27b9cfb804b1dbf5fc02ebef673df4f28b3b1220",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 720,
+    "height": 709
+  },
+  {
+    "number": 66,
+    "filename": "photo_66_2026-09-10_03-48-40.jpg",
+    "sha256": "8f5be8058d2191e21a73533a83c04fa70b75f7b15775a8a9a71f18298604ba94",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 67,
+    "filename": "photo_67_2026-09-10_03-48-40.jpg",
+    "sha256": "60aa6fabc9f8bbf627e99c4367188c52d3f05e130df95a07888ee341d8c3c5cc",
+    "classification": "مستبعد من واجهة المتجر",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لقطة منشور عام لا تثبت منتجًا",
+    "width": 576,
+    "height": 1280
+  },
+  {
+    "number": 68,
+    "filename": "photo_68_2026-09-10_03-48-40.jpg",
+    "sha256": "16f9dade0fba6e15d68f47586a0c7ed3dd5ac7d4739cdbd53b2a93f61f508b73",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "perfume-boxes"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 1122
+  },
+  {
+    "number": 69,
+    "filename": "photo_69_2026-09-10_03-48-40.jpg",
+    "sha256": "8956dab20926da99f681f7a9f24403303ab417b23b4f71d08a399b4931d154e2",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 70,
+    "filename": "photo_70_2026-09-10_03-48-40.jpg",
+    "sha256": "ff265c875c59ebbf2c1c0c17202c66accaa19ce68ed3f925d2b18dd5f10e3402",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 71,
+    "filename": "photo_71_2026-09-10_03-48-40.jpg",
+    "sha256": "5067d989d8ca5ee03ea5a1738d4c6775e442c0eb64a484851dddb097cc25db99",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "amber-blends"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 551,
+    "height": 641
+  },
+  {
+    "number": 72,
+    "filename": "photo_72_2026-09-10_03-48-40.jpg",
+    "sha256": "ff265c875c59ebbf2c1c0c17202c66accaa19ce68ed3f925d2b18dd5f10e3402",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": 70,
+    "exact_duplicate_of": 70,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 73,
+    "filename": "photo_73_2026-09-10_03-48-40.jpg",
+    "sha256": "919739280d30b05d739fa5c8183668ced41bc452fa7dd5bce69488bb42fe8922",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 74,
+    "filename": "photo_74_2026-09-10_03-48-40.jpg",
+    "sha256": "0a43b148f709d2ee5e028daad08392cc7b0d5b15e429da565e67fef15e1a4830",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "perfume-selection"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 784
+  },
+  {
+    "number": 75,
+    "filename": "photo_75_2026-09-10_03-48-40.jpg",
+    "sha256": "b06f9463643c074c37ca1367e2fbec5a7790faad08ff608c31f6dc68b35efb8b",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "perfume-selection"
+    ],
+    "duplicate_of": 74,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 720,
+    "height": 870
+  },
+  {
+    "number": 76,
+    "filename": "photo_76_2026-09-10_03-48-40.jpg",
+    "sha256": "9288f5c71a21fe8c01a1b3df6f32b6e8385384b4f3b6b350a78d34fc14679ab4",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 537,
+    "height": 1068
+  },
+  {
+    "number": 77,
+    "filename": "photo_77_2026-09-10_03-48-40.jpg",
+    "sha256": "15d3bd8a75d41da982d83750d63cc158b2fefbe9f8839a8c10344f75620346fc",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "laverne-sense"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1080,
+    "height": 1079
+  },
+  {
+    "number": 78,
+    "filename": "photo_78_2026-09-10_03-48-40.jpg",
+    "sha256": "b27c6df8cf75942153fcfa3dfabf62e5ebdcef94d20bf132d05ef443b65f6325",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 630,
+    "height": 684
+  },
+  {
+    "number": 79,
+    "filename": "photo_79_2026-09-10_03-48-40.jpg",
+    "sha256": "ea119beb8ded430ee35aad751f9be7cfc3dddbb117b1bcb46c0788bcc3525ab6",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1070,
+    "height": 579
+  },
+  {
+    "number": 80,
+    "filename": "photo_80_2026-09-10_03-48-40.jpg",
+    "sha256": "9386ae9b23d2976840ac05088a80f598ba202b4c7a077af8858a4f2becaa7811",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 620,
+    "height": 1080
+  },
+  {
+    "number": 81,
+    "filename": "photo_81_2026-09-10_03-48-40.jpg",
+    "sha256": "ece8df4cb26acc6ac16afe72419318d72cf7a00275f580a758fe2d7bd0963ac3",
+    "classification": "مستبعد من واجهة المتجر",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "صورة بخلفية شتوية وأشجار، أزيلت من معرض المنتج بعد مراجعة ملاحظة المستخدم. الأصل محفوظ للمراجعة.",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "number": 82,
+    "filename": "photo_82_2026-09-10_03-48-40.jpg",
+    "sha256": "f7f7a4c9a5a1937280427d0287e224bfac1bff96ce65569e11807ab37e09f4a1",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "musk-collection"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 540,
+    "height": 625
+  },
+  {
+    "number": 83,
+    "filename": "photo_83_2026-09-10_03-48-40.jpg",
+    "sha256": "d0c7490e1f214f6b9e939c2c1de11c43dda6a1a473785272667ef50b6c9b452d",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 576,
+    "height": 1280
+  },
+  {
+    "number": 84,
+    "filename": "photo_84_2026-09-10_03-48-40.jpg",
+    "sha256": "b3eea96d84ce5d9940d887f1bf1167b3228a72c66f981d6c4b0d7bf769ddaeb0",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 576,
+    "height": 1280
+  },
+  {
+    "number": 85,
+    "filename": "photo_85_2026-09-10_03-48-40.jpg",
+    "sha256": "fa377cc60ce0fa5a46e974a55fc4d269e2f8ce404da13228efec9a5cff5f3288",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "incense-discs"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "number": 86,
+    "filename": "photo_86_2026-09-10_03-48-40.jpg",
+    "sha256": "2abe101b58ec03d13b50122fda533df341f3419c96e51a43687b3a4b564c2704",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 591,
+    "height": 1280
+  },
+  {
+    "number": 87,
+    "filename": "photo_87_2026-09-10_03-48-40.jpg",
+    "sha256": "552dff5d5e3e8567a866e443991b06d4696dde9eaca52e107c0408b76ed0ceb0",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 591,
+    "height": 1280
+  },
+  {
+    "number": 88,
+    "filename": "photo_88_2026-09-10_03-48-40.jpg",
+    "sha256": "2cac9223b4190189d29899a63f3eb1c875db2a22050ec013c1be24b52094b32f",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 591,
+    "height": 1280
+  },
+  {
+    "number": 89,
+    "filename": "photo_89_2026-09-10_03-48-40.jpg",
+    "sha256": "304c1bb31a2c4bd2854bbf223ae70964ad775f0f9747970f37de9e362c6824f3",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": 88,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 591,
+    "height": 1280
+  },
+  {
+    "number": 90,
+    "filename": "photo_90_2026-09-10_03-48-40.jpg",
+    "sha256": "faa403f3e022017cdd1be9cb33652d5b9c35860f530570e22eff6b650bceaa3d",
+    "classification": "بانتظار تحديد المنتج",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "لا يكفي المظهر لتأكيد الاسم أو المحتوى",
+    "width": 1080,
+    "height": 810
+  },
+  {
+    "number": 91,
+    "filename": "photo_91_2026-09-10_03-48-40.jpg",
+    "sha256": "b929cb19e006cbde841c7cb88e3414d264193955732c7afa4bfb459519ccd468",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 709,
+    "height": 1280
+  },
+  {
+    "number": 92,
+    "filename": "photo_92_2026-09-10_03-48-40.jpg",
+    "sha256": "006dab3bef2094f2a84d557c4a33b163d543ecfa4c14ab7427f67de5a7d47d89",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "reve-dor"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 669,
+    "height": 1080
+  },
+  {
+    "number": 93,
+    "filename": "photo_93_2026-09-10_03-48-40.jpg",
+    "sha256": "a27e5b32dfa07c4e4be372c2bbf296ac4b3bff99753ef13f98442212ae6f1463",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "number": 94,
+    "filename": "photo_94_2026-09-10_03-48-40.jpg",
+    "sha256": "e1f9ff1d8011fadbdfbc3007ed9cba121964a2d26628c4e35549966daed6a915",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 880,
+    "height": 1184
+  },
+  {
+    "number": 95,
+    "filename": "photo_95_2026-09-10_03-48-40.jpg",
+    "sha256": "af69ef82543a726063b2fd212672908003f687bdb4addbee9caf215d9bae8682",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 1080,
+    "height": 969
+  },
+  {
+    "number": 96,
+    "filename": "photo_96_2026-09-10_03-48-40.jpg",
+    "sha256": "5f884b3c814bc2429836024a9ddf48f2d4097284637cf018adfcb77f5f37940a",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "musk-powder-photo"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 680,
+    "height": 646
+  },
+  {
+    "number": 97,
+    "filename": "photo_97_2026-09-10_03-48-40.jpg",
+    "sha256": "c8b66c0f7a7e354da4505c29fdb77ccbfcbdb1083d8fdd2f41b6746a7475e06f",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "glycerin-oil"
+    ],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 247,
+    "height": 267
+  },
+  {
+    "number": 98,
+    "filename": "photo_98_2026-09-10_03-48-40.jpg",
+    "sha256": "c8b66c0f7a7e354da4505c29fdb77ccbfcbdb1083d8fdd2f41b6746a7475e06f",
+    "classification": "كتالوج المنتجات",
+    "product_ids": [
+      "glycerin-oil"
+    ],
+    "duplicate_of": 97,
+    "exact_duplicate_of": 97,
+    "decision": "مرتبط بمنتج مصوّر؛ لا يؤكد التوفر",
+    "width": 247,
+    "height": 267
+  },
+  {
+    "number": 99,
+    "filename": "photo_99_2026-09-10_03-48-40.jpg",
+    "sha256": "d9f4b5043236a5faa7db23d896058862e5e79c9a63c864493ef797b88acc98ad",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 698,
+    "height": 1080
+  },
+  {
+    "number": 100,
+    "filename": "photo_100_2026-09-10_03-48-40.jpg",
+    "sha256": "079c734076f97c9c23b059aabd4ac473061c4eb2fcd3e507efab67e2884dbf8c",
+    "classification": "تعليم ومحتوى تحريري",
+    "product_ids": [],
+    "duplicate_of": null,
+    "exact_duplicate_of": null,
+    "decision": "مادة تعليمية؛ لا تعامل كمنتج أو وصفة معتمدة",
+    "width": 720,
+    "height": 517
+  }
+]
