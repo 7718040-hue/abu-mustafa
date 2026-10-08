@@ -1,6 +1,6 @@
 {
   "name": "abu-mustafa-cloudflare",
-  "version": "2.0.0-cloudflare.1",
+  "version": "2.0.0-cloudflare.2",
   "private": true,
   "scripts": {
     "dev": "wrangler dev --port 4176",
@@ -14,10 +14,12 @@
     "test:live-catalog": "node scripts/check-live-catalog.mjs",
     "test:cloudflare": "node scripts/run-tests.mjs --cloudflare-only",
     "deploy:check": "node scripts/deploy-check.mjs",
-    "deploy": "node scripts/deploy-check.mjs && wrangler deploy",
+    "deploy": "node scripts/deploy-cloudflare.mjs",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
-    "backup:prepare": "node scripts/prepare-cloudflare-import.mjs"
+    "backup:prepare": "node scripts/prepare-cloudflare-import.mjs",
+    "data:restore": "node scripts/restore-cloudflare-data.mjs",
+    "test:transfer-copy": "node scripts/build-worker.mjs && node tests/transfer-copy.test.mjs"
   },
   "devDependencies": {
     "drizzle-kit": "0.31.10",

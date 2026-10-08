@@ -1,0 +1,104 @@
+{
+  "format": "abu-mustafa-backup-v1",
+  "created_at": "2026-10-08T03:14:37.827Z",
+  "database_sha256": "4ed8808d2d3acd0b355fb82531b543f38918b8156010f7742dce4de46d85f61f",
+  "files": [
+    {
+      "id": "062d9587-90ac-4fe1-af3e-8050c5f4151e",
+      "object_key": "products/062d9587-90ac-4fe1-af3e-8050c5f4151e",
+      "file": "objects/062d9587-90ac-4fe1-af3e-8050c5f4151e",
+      "size": 97250,
+      "sha256": "c7d9ee30ccd9409d4f6c2e7a2f56ec86fadc1c2f5ab47fd01c420b6c330e2f2c",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "10058c7a-9531-4c7a-a732-10a39781eab7",
+      "object_key": "products/10058c7a-9531-4c7a-a732-10a39781eab7",
+      "file": "objects/10058c7a-9531-4c7a-a732-10a39781eab7",
+      "size": 116168,
+      "sha256": "5d8d0663825d6716666d22e435d4ab6b7b650c346fc5ce3b9b02b48358d2855f",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "3087a30c-2071-4bc9-ab4e-ad7e3743bfcc",
+      "object_key": "products/3087a30c-2071-4bc9-ab4e-ad7e3743bfcc",
+      "file": "objects/3087a30c-2071-4bc9-ab4e-ad7e3743bfcc",
+      "size": 63890,
+      "sha256": "5abfab175718140fc43a014c4362f2ae908a44a26af05c477885373e48803fce",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "35bee289-11ed-4912-95dc-673d3f085bc6",
+      "object_key": "products/35bee289-11ed-4912-95dc-673d3f085bc6",
+      "file": "objects/35bee289-11ed-4912-95dc-673d3f085bc6",
+      "size": 68810,
+      "sha256": "60622e7294f0bd8213e50e3cf4209d58a085ea7a2b2afdbd1173e9363e469a06",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "37ee88e7-f675-468f-bf74-61d63d7906bf",
+      "object_key": "products/37ee88e7-f675-468f-bf74-61d63d7906bf",
+      "file": "objects/37ee88e7-f675-468f-bf74-61d63d7906bf",
+      "size": 106578,
+      "sha256": "8c69d3409f7e8c97572e6cc6e0900358ef12365acab91d403f567fdc30cbc319",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "382cc428-fa67-47eb-8563-0eba79d2dc9c",
+      "object_key": "products/382cc428-fa67-47eb-8563-0eba79d2dc9c",
+      "file": "objects/382cc428-fa67-47eb-8563-0eba79d2dc9c",
+      "size": 10154,
+      "sha256": "042b84326e31a6c42b453ea96e3257b76bdc78718a28c07fe7c7f531d789901d",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "38943468-76da-4de6-bd98-76b3794a42bd",
+      "object_key": "products/38943468-76da-4de6-bd98-76b3794a42bd",
+      "file": "objects/38943468-76da-4de6-bd98-76b3794a42bd",
+      "size": 113202,
+      "sha256": "4e4f9682349fff0705b87774beaaf58cd38af041190c44f5636883c255a892b1",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "4fd53e95-13fb-4824-845a-9400980afbff",
+      "object_key": "products/4fd53e95-13fb-4824-845a-9400980afbff",
+      "file": "objects/4fd53e95-13fb-4824-845a-9400980afbff",
+      "size": 65040,
+      "sha256": "ddc75dedc50085af3c1a32f0efaae2cdd09b38c115cd7e9db2d5ba957ff09881",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "5482aab4-e493-479f-9f17-8d93f3401989",
+      "object_key": "products/5482aab4-e493-479f-9f17-8d93f3401989",
+      "file": "objects/5482aab4-e493-479f-9f17-8d93f3401989",
+      "size": 91654,
+      "sha256": "c301b5d7d68a2a6d42e61979788960ab7cd6b6e99afb7e6014527b466e1a4bfd",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "b9394cb2-a1a6-4da2-ba87-24a43fcb743d",
+      "object_key": "products/b9394cb2-a1a6-4da2-ba87-24a43fcb743d",
+      "file": "objects/b9394cb2-a1a6-4da2-ba87-24a43fcb743d",
+      "size": 46210,
+      "sha256": "7ebfd00cc293b9d56e94ee63038ea89ed32e7ddb55b235405faa028c8cb91c03",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "ddc1b5ea-9833-43d6-9930-b47ee719dd6f",
+      "object_key": "products/ddc1b5ea-9833-43d6-9930-b47ee719dd6f",
+      "file": "objects/ddc1b5ea-9833-43d6-9930-b47ee719dd6f",
+      "size": 117720,
+      "sha256": "453f2949c3616f7e054aa2bac55fb4c2c5a112b94096d3280f06b6f9e7c2b203",
+      "content_type": "image/webp"
+    },
+    {
+      "id": "f559aebc-af25-4254-a071-5217645b0b85",
+      "object_key": "products/f559aebc-af25-4254-a071-5217645b0b85",
+      "file": "objects/f559aebc-af25-4254-a071-5217645b0b85",
+      "size": 76764,
+      "sha256": "2661ea1941db76c133292009be284444fd0cbe349894b780f157f538ac66719c",
+      "content_type": "image/webp"
+    }
+  ],
+  "scope": "Complete business content and uploaded images. Cloudflare owner and staff identities are configured in the new account. Original administration history remains in the private local backup."
+}
