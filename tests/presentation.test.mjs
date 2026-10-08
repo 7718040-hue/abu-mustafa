@@ -3,7 +3,7 @@ import {mkdtemp,rm,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {createRuntime} from '../scripts/local-runtime.cjs';
-const state=await mkdtemp(join(tmpdir(),'abu-presentation-')),origin='https://abu-mustafa-ibb.classy-ape-4617.chatgpt.site';
+const state=await mkdtemp(join(tmpdir(),'abu-presentation-')),origin='https://cloudflare-preview.example';
 const owner={'oai-authenticated-user-id':'presentation-owner','oai-authenticated-user-email':'owner@preview.test'},editor={'oai-authenticated-user-id':'presentation-editor','oai-authenticated-user-email':'editor@preview.test'};
 let runtime=await createRuntime({stateDirectory:state}),count=0;
 const check=(condition,label)=>{assert.ok(condition,label);count++;console.log('PASS '+label);};

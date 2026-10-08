@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "abu-mustafa-cloudflare",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-05-15",
+  "workers_dev": true,
+  "preview_urls": false,
+  "build": {
+    "command": "node scripts/build-worker.mjs"
+  },
+  "assets": {
+    "directory": "dist/client",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "abu-mustafa-cloudflare-catalog",
+      "database_id": "REPLACE_WITH_NEW_D1_DATABASE_ID",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "abu-mustafa-cloudflare-photos"
+    }
+  ],
+  "vars": {
+    "PUBLIC_ORIGIN": "https://cloudflare-preview.example",
+    "PUBLIC_INDEXING": "disabled",
+    "ACCESS_TEAM_DOMAIN": "https://REPLACE_WITH_TEAM.cloudflareaccess.com",
+    "ACCESS_AUD": "REPLACE_WITH_ACCESS_APPLICATION_AUD"
+  }
+}

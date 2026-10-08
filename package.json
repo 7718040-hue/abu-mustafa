@@ -1,22 +1,35 @@
 {
-  "name": "abu-mustafa-ibb",
-  "version": "1.0.0",
+  "name": "abu-mustafa-cloudflare",
+  "version": "2.0.0-cloudflare.1",
   "private": true,
   "scripts": {
-    "dev": "node server.cjs",
+    "dev": "wrangler dev --port 4176",
     "build": "node scripts/build-worker.mjs",
     "build:content": "python report.py",
     "db:generate": "drizzle-kit generate",
-    "test": "node tests/catalog.test.mjs && node tests/requirements.test.mjs && node tests/presentation.test.mjs && node tests/seo.test.mjs",
+    "test": "node scripts/run-tests.mjs",
     "preview:seo": "node scripts/seo-preview.cjs",
     "audit:seo": "node scripts/audit-seo.mjs",
     "audit:seo:public": "node scripts/audit-public-seo.mjs",
-    "test:live-catalog": "node scripts/check-live-catalog.mjs"
+    "test:live-catalog": "node scripts/check-live-catalog.mjs",
+    "test:cloudflare": "node scripts/run-tests.mjs --cloudflare-only",
+    "deploy:check": "node scripts/deploy-check.mjs",
+    "deploy": "node scripts/deploy-check.mjs && wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "backup:prepare": "node scripts/prepare-cloudflare-import.mjs"
   },
   "devDependencies": {
     "drizzle-kit": "0.31.10",
     "drizzle-orm": "0.45.2",
     "esbuild": "0.27.3",
-    "miniflare": "4.20260515.0"
+    "miniflare": "4.20260515.0",
+    "wrangler": "4.148.0"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "jose": "6.2.12"
   }
 }

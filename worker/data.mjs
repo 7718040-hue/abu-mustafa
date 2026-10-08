@@ -1,6 +1,6 @@
 import seed from '../content/products.json';
 import imageMetadata from '../content/image-metadata.json';
-export const ORIGIN='https://abu-mustafa-ibb.classy-ape-4617.chatgpt.site';
+export const ORIGIN=__PUBLIC_ORIGIN__;
 export const STORE_NAME='مركز أبو مصطفى التجاري للعود والعطور ومستلزمات التجميل ومستلزمات الأخضرين والزباد والبخور';
 export const STORE_ADDRESS='اليمن - إب - شارع تعز - جوار البرج - أمام القوسي للجنابي تمامًا';
 export const WA='https://wa.me/967770525525';

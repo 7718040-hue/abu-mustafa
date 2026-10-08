@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const state=await mkdtemp(path.resolve('.local-state-test-'));
 let runtime=await createRuntime({stateDirectory:state});
-const origin='https://abu-mustafa-ibb.classy-ape-4617.chatgpt.site';
+const origin='https://cloudflare-preview.example';
 const owner={'oai-authenticated-user-id':'test-owner','oai-authenticated-user-email':'owner@preview.test'};
 const other={'oai-authenticated-user-id':'test-other','oai-authenticated-user-email':'other@preview.test'};
 let checks=0;

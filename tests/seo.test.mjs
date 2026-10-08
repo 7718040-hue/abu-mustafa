@@ -4,7 +4,7 @@ import {tmpdir} from 'node:os';
 import {join,relative,isAbsolute} from 'node:path';
 import {createRuntime} from '../scripts/local-runtime.cjs';
 
-const origin='https://abu-mustafa-ibb.classy-ape-4617.chatgpt.site';
+const origin='https://cloudflare-preview.example';
 const seo=JSON.parse(await readFile('content/seo.json','utf8'));
 const state=await mkdtemp(join(tmpdir(),'abu-seo-'));
 let runtime=await createRuntime({stateDirectory:state,publicIndexing:true}),checks=0;

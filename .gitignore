@@ -8,3 +8,12 @@ node_modules/
 
 .local-state-test-*/
 site-deploy*.tar.gz
+
+.wrangler/
+dist/
+.cloudflare-test/
+cloudflare.config.local.json
+*.db
+*.sqlite
+*.sqlite3
+backups/

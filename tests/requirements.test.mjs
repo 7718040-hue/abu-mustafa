@@ -8,7 +8,7 @@ const state=await mkdtemp(join(tmpdir(),'abu-mustafa-requirements-'));
 const headers={'oai-authenticated-user-id':'owner-contract','oai-authenticated-user-email':'owner@preview.test'};
 let count=0;
 const check=(value,label)=>{assert.ok(value,label);count++;console.log('PASS '+label);};
-const fetchText=async(runtime,path,options={})=>{const response=await runtime.dispatchFetch('https://abu-mustafa-ibb.classy-ape-4617.chatgpt.site'+path,{headers:{...headers,...options.headers},...options});return {response,text:await response.text()};};
+const fetchText=async(runtime,path,options={})=>{const response=await runtime.dispatchFetch('https://cloudflare-preview.example'+path,{headers:{...headers,...options.headers},...options});return {response,text:await response.text()};};
 
 const style=await readFile('dist/client/style.css','utf8');
 const app=await readFile('dist/client/app.js','utf8');

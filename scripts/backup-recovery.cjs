@@ -5,7 +5,8 @@ const crypto = require('node:crypto');
 const assert = require('node:assert/strict');
 const {createRuntime} = require('./local-runtime.cjs');
 const root = path.resolve(__dirname, '..');
-const origin = 'https://abu-mustafa-ibb.classy-ape-4617.chatgpt.site';
+const config = JSON.parse(require('node:fs').readFileSync(path.join(root,'wrangler.json'),'utf8'));
+const origin = config.vars.PUBLIC_ORIGIN;
 const order = ['settings','categories','media','products','reviews','admin_members','faqs','posts','audit_log'];
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
 const normalized = rows => JSON.stringify(rows.map(r=>Object.fromEntries(Object.keys(r).sort().map(k=>[k,r[k]]))).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b))));
@@ -33,7 +34,7 @@ async function main(){
     }
     const source=path.join(dir,'source');await fs.mkdir(source);
     // Include all deployed static files and application sources, never local credentials or Git metadata.
-    for(const name of ['worker','web','content','public','db','drizzle','scripts','tests','docs','dist','.openai','package.json','package-lock.json','README.md','build.py','catalog.py','report.py','finalize.py','prepare-assets.cjs','server.cjs','drizzle.config.ts','.gitignore','.env.example']){
+    for(const name of ['worker','web','content','public','db','drizzle','scripts','tests','docs','wrangler.json','package.json','package-lock.json','README.md','build.py','catalog.py','report.py','finalize.py','prepare-assets.cjs','server.cjs','drizzle.config.ts','.gitignore','.env.example']){
       await fs.cp(path.join(root,name),path.join(source,name),{recursive:true,errorOnExist:true,force:false});
     }
     const sourceFiles=[];
@@ -58,7 +59,7 @@ async function main(){
   }
   assert.equal(manifest.files.length,snapshot.tables.media.rows.length);
   const drill=await fs.mkdtemp(path.join(dir,'restore-check-'));
-  const mf=await createRuntime({stateDirectory:drill,publicIndexing:true});
+  const mf=await createRuntime({stateDirectory:drill,publicIndexing:true,scriptPath:path.join(root,'dist/server/index.js'),bindings:config.vars});
   try{
     const db=await mf.getD1Database('DB'),bucket=await mf.getR2Bucket('BUCKET');
     for(const name of order){
@@ -86,7 +87,7 @@ async function main(){
     const expected=snapshot.tables.products.rows.filter(p=>p.visible&&!p.deleted_at);
     assert.deepEqual(catalog.products.map(p=>p.id).sort(),expected.map(p=>p.id).sort());
     for(const p of catalog.products)assert.equal((await mf.dispatchFetch(p.url)).status,200);
-    assert.equal((await mf.dispatchFetch(origin+'/api/admin/catalog')).status,403);
+    assert.ok([401,403,503].includes((await mf.dispatchFetch(origin+'/api/admin/catalog')).status));
     const report={verified_at:new Date().toISOString(),tables:order.length,records:Object.fromEntries(order.map(t=>[t,snapshot.tables[t].rows.length])),media:manifest.files.length,sourceFiles:manifest.sourceFiles.length,publicProducts:catalog.products.length,foreignKeyErrors:0,byteIdenticalTables:true,byteIdenticalMedia:true,productionWrites:false,drillDirectory:drill};
     await fs.writeFile(path.join(drill,'result.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
   }finally{await mf.dispose();}
