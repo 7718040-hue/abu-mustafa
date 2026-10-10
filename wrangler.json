@@ -19,7 +19,7 @@
     {
       "binding": "DB",
       "database_name": "abu-mustafa-cloudflare-catalog",
-      "database_id": "REPLACE_WITH_NEW_D1_DATABASE_ID",
+      "database_id": "033a633e-1d39-4f26-aecf-2a333d4602ef",
       "migrations_dir": "drizzle"
     }
   ],
@@ -30,9 +30,9 @@
     }
   ],
   "vars": {
-    "PUBLIC_ORIGIN": "https://cloudflare-preview.example",
+    "PUBLIC_ORIGIN": "https://abu-mustafa-cloudflare.7718040.workers.dev",
     "PUBLIC_INDEXING": "disabled",
-    "ACCESS_TEAM_DOMAIN": "https://REPLACE_WITH_TEAM.cloudflareaccess.com",
-    "ACCESS_AUD": "REPLACE_WITH_ACCESS_APPLICATION_AUD"
+    "ACCESS_TEAM_DOMAIN": "https://still-heart-472a.cloudflareaccess.com",
+    "ACCESS_AUD": "31b1f5fda375dbdb20939353e8e3abcd1857770045d186ca05b8bdedd9338b8c"
   }
 }
