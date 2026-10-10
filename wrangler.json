@@ -30,7 +30,7 @@
     }
   ],
   "vars": {
-    "PUBLIC_ORIGIN": "https://abu-mustafa-cloudflare.7718040.workers.dev",
+    "PUBLIC_ORIGIN": "https://abu-mustafa-cloudflare.abumustafacenter.workers.dev",
     "PUBLIC_INDEXING": "disabled",
     "ACCESS_TEAM_DOMAIN": "https://still-heart-472a.cloudflareaccess.com",
     "ACCESS_AUD": "31b1f5fda375dbdb20939353e8e3abcd1857770045d186ca05b8bdedd9338b8c"
