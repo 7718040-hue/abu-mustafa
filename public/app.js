@@ -121,7 +121,7 @@
     product.gallery.forEach(({url},i) => {
       const thumb=document.createElement('button'); thumb.className='thumb'+(i===0?' active':''); thumb.type='button';
       thumb.setAttribute('aria-label','عرض الصورة '+number(i+1)+' من '+product.name); thumb.setAttribute('aria-pressed',String(i===0));
-      const img=document.createElement('img'); img.src=url.includes('/assets/photos/')?url.replace('.webp','-small.webp'):url; img.alt=product.name+' — '+number(i+1); img.loading='lazy'; thumb.appendChild(img);
+      const img=document.createElement('img'); img.src=(/^\/(?:static\/[a-f0-9]+\/)?(?:assets\/photos|product-images)\//.test(new URL(url,location.href).pathname))?url.replace('.webp','-small.webp'):url; img.alt=product.name+' — '+number(i+1); img.loading='lazy'; thumb.appendChild(img);
       thumb.addEventListener('click', () => { target.src=url; target.alt=product.name+' — الصورة '+number(i+1); $$('button',thumbs).forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');}); thumb.classList.add('active');thumb.setAttribute('aria-pressed','true'); });
       thumbs.appendChild(thumb);
     });

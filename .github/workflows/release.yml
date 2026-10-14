@@ -1,0 +1,36 @@
+name: Deploy reviewed version to Cloudflare
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+concurrency:
+  group: cloudflare-production-release
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: ${{ !github.event.release.prerelease }}
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.release.tag_name }}
+      - name: Require release to belong to reviewed Cloudflare branch
+        run: git merge-base --is-ancestor HEAD origin/cloudflare-hosting
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Require Cloudflare deployment credential
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: test -n "$CLOUDFLARE_API_TOKEN"
+      - name: Update code and additive cache migration; retain business data
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ac5af3f97bbc70f0367edb6eb261d5fa
+        run: node scripts/update-cloudflare.mjs --production

@@ -17,3 +17,6 @@ cloudflare.config.local.json
 *.sqlite
 *.sqlite3
 backups/
+
+*.log
+.browser-test/

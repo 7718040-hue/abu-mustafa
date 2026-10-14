@@ -1,10 +1,11 @@
 import {readFile} from 'node:fs/promises';
-const config=JSON.parse(await readFile('wrangler.json','utf8'));
+const at=process.argv.indexOf('--config');
+const config=JSON.parse(await readFile(at<0?'wrangler.json':process.argv[at+1],'utf8'));
 const fail=message=>{console.error(message);process.exit(1);};
 const url=new URL(config.vars.PUBLIC_ORIGIN);
 if(url.protocol!=='https:'||url.pathname!=='/'||url.username||url.password||url.search||url.hash||/\.example$|\.chatgpt\.site$/.test(url.hostname)||/REPLACE/i.test(url.hostname))fail('Configure the actual independent Cloudflare PUBLIC_ORIGIN first.');
 if(!/^[0-9a-f-]{36}$/i.test(config.d1_databases?.[0]?.database_id||''))fail('Configure the new D1 database ID.');
 if(!/^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com$/.test(config.vars.ACCESS_TEAM_DOMAIN)||!/^[a-f0-9]{64}$/.test(config.vars.ACCESS_AUD))fail('Configure Cloudflare Access team domain and application audience.');
-if(config.assets.run_worker_first!==true||config.assets.binding!=='ASSETS'||config.assets.html_handling!=='none')fail('Worker-first asset routing is required.');
+if(JSON.stringify(config.assets.run_worker_first)!==JSON.stringify(['/*','!/assets/*','!/product-images/*','!/static/*','!/style.css','!/app.js','!/admin.css','!/admin.js','!/favicon.ico'])||config.assets.binding!=='ASSETS'||config.assets.html_handling!=='none')fail('Only the approved public static paths may bypass the Worker.');
 if(config.main!=='dist/server/index.js'||config.preview_urls!==false)fail('Use the protected Cloudflare entry and disable alternate preview hostnames.');
 console.log('Local deployment configuration passed. Confirm Access paths, owner secret and separate D1/R2 in the account before deployment.');
