@@ -31,7 +31,7 @@ jobs:
             docs/preview-live-results.json
 
   deploy-preview:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/cost-optimization' && vars.ENABLE_PREVIEW_DEPLOY == 'true' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/cost-optimization' }}
     needs: validate
     environment: preview
     runs-on: ubuntu-latest
