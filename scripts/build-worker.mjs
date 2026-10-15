@@ -28,17 +28,15 @@ async function filesAt(dir){const files=[];for(const e of await readdir(dir,{wit
 }return files;}
 const publicFiles=[...await filesAt('dist/client/assets'),...await filesAt('dist/client/product-images'),
   ...['style.css','app.js','admin.css','admin.js','favicon.ico'].map(p=>'dist/client/'+p)].sort();
-const assetHash=createHash('sha256');
-for(const file of publicFiles){assetHash.update(file.slice(11));assetHash.update(await readFile(file));}
-const prefix='/static/'+assetHash.digest('hex').slice(0,24),staticPaths={};
-for(const file of publicFiles)staticPaths['/'+file.slice(12)]=prefix+'/'+file.slice(12);
-for(const file of publicFiles){
-  const target='dist/client'+staticPaths['/'+file.slice(12)];await mkdir(target.slice(0,target.lastIndexOf('/')),{recursive:true});
-  if(file.endsWith('.css')){
-    let css=await readFile(file,'utf8');
-    css=css.replace(/\/assets\/[A-Za-z0-9_./-]+/g,path=>staticPaths[path]||path);await writeFile(target,css);
-  }else await cp(file,target);
+const staticPaths={},outputBytes=new Map();
+// Fingerprint each file independently: changing JS must not evict unchanged images.
+const remember=(file,bytes)=>{const assetPath='/'+file.slice(12);staticPaths[assetPath]='/static/'+createHash('sha256').update(bytes).digest('hex').slice(0,24)+assetPath;outputBytes.set(file,bytes);};
+for(const file of publicFiles.filter(file=>!file.endsWith('.css')))remember(file,await readFile(file));
+for(const file of publicFiles.filter(file=>file.endsWith('.css'))){
+ const css=(await readFile(file,'utf8')).replace(/\/assets\/[A-Za-z0-9_./-]+/g,path=>staticPaths[path]||path);
+ remember(file,Buffer.from(css));
 }
+for(const [file,bytes] of outputBytes){const target='dist/client'+staticPaths['/'+file.slice(12)];await mkdir(target.slice(0,target.lastIndexOf('/')),{recursive:true});await writeFile(target,bytes);}
 await writeFile('dist/static-paths.json',JSON.stringify(staticPaths,null,2));
 const robots=(process.env.PUBLIC_INDEXING||config.vars.PUBLIC_INDEXING)==='enabled-after-owner-approval'?'index, follow, max-image-preview:large':'noindex, nofollow, noarchive';
 await writeFile('dist/client/_headers',`/*
@@ -64,7 +62,7 @@ const portableJson={name:'portable-origin',setup(b){b.onLoad({filter:/content[\\
 const cacheBuild=createHash('sha256');
 for(const name of (await readdir('worker')).filter(n=>n.endsWith('.mjs')).sort())cacheBuild.update(await readFile('worker/'+name));
 for(const name of (await readdir('content')).filter(n=>n.endsWith('.json')).sort())cacheBuild.update(await readFile('content/'+name));
-cacheBuild.update(origin);cacheBuild.update(prefix);
+cacheBuild.update(origin);cacheBuild.update(JSON.stringify(staticPaths));
 const options={bundle:true,format:'esm',platform:'browser',target:'es2022',external:['cloudflare:workers'],define:{__STATIC_PATHS__:JSON.stringify(staticPaths),__PUBLIC_ORIGIN__:JSON.stringify(origin),__CACHE_BUILD__:JSON.stringify(cacheBuild.digest('hex').slice(0,24))},plugins:[portableJson]};
 await build({...options,entryPoints:['worker/cloudflare.mjs'],outfile:'dist/server/index.js'});
 if(process.argv.includes('--test-core'))await build({...options,entryPoints:['worker/index.mjs'],outfile:'dist/server/core-test.js'});

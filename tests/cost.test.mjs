@@ -50,6 +50,11 @@ try{
  check(assetPaths.length>5,'homepage references fingerprinted images, scripts, styles and fonts');
  for(const asset of assetPaths){const r=await runtime.dispatchFetch(origin+asset);await r.arrayBuffer();check(r.status===200&&!r.headers.has('x-test-measurement')&&r.headers.get('cache-control').includes('2592000'),'asset bypasses Worker with month-long browser cache: '+asset.split('/').pop());}
  const asset=await runtime.dispatchFetch(origin+'/product-images/1.webp');await asset.arrayBuffer();check(asset.status===200&&!asset.headers.has('x-test-measurement'),'original product-image links also bypass Worker');
+ const oldAsset='/static/'+('0'.repeat(24))+'/product-images/1.webp';
+ const relocated=await runtime.dispatchFetch(origin+oldAsset,{redirect:'manual'});
+ check(relocated.status===302&&relocated.headers.get('cache-control')==='no-store','open pages using an old asset hash get a fresh, noncached redirect');
+ const current=await runtime.dispatchFetch(origin+relocated.headers.get('location'));check(current.status===200,'old asset redirect resolves to a valid current image');await current.arrayBuffer();
+ check((await read('/static/'+('0'.repeat(24))+'/api/admin/catalog')).r.status===404,'asset compatibility cannot redirect to admin routes');
  const uuid='22222222-2222-4222-8222-222222222222',bucket=await runtime.getR2Bucket('BUCKET');
  await bucket.put('cost-test-image',new Uint8Array([1,2,3,4]),{httpMetadata:{contentType:'image/webp'}});
  await db.prepare('INSERT INTO media(id,object_key,filename,content_type,size,width,height,created_at,created_by) VALUES(?,?,?,?,?,?,?,?,?)').bind(uuid,'cost-test-image','test.webp','image/webp',4,1,1,'2026-10-14','test').run();

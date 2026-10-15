@@ -5,7 +5,7 @@ Production has NOT been updated. Current reviewed baseline is Cloudflare version
 `eef19a39a077f91b2bd6e956041cbc7d5b870b9d`.
 
 ## Behavior and savings
-- Public static files bypass Worker execution. Their content-versioned paths allow 30-day browser caching. Original image URLs remain available to crawlers.
+- Public static files bypass Worker execution. Each asset has its own content fingerprint, so editing JavaScript preserves unchanged image/font URLs. Requests for missing previous fingerprints fall through to a noncached redirect for known public files only; dynamic catalog/admin routes always run the Worker. Their content-versioned paths allow 30-day browser caching. Original image URLs remain available to crawlers.
 - Public catalog cache stores data only, not identity, admin responses, or HTML. Every request reads a revision row, and D1 triggers invalidate after content edits.
 - Uploaded image edge cache removes repeated D1/R2 reads. An edge cache hit still invokes the Worker; browser cache hits avoid network requests while fresh. Caches can be evicted.
 - HTML remains fresh; prices and availability are not frozen for a month. JSON-LD, SSR product pages, sitemap, catalog feeds, and llms.txt remain supported. No guarantee of AI answer inclusion.
@@ -40,3 +40,6 @@ Either configure GitHub Actions deployment secrets or connect GitHub from the Cl
 ## Verification limits
 The current local network returns ENOTFOUND for workers.dev; no statement that ordinary mobile access is fixed is justified. DNS/ISP reachability is separate from code optimization. Hosted preview HTTP validation is required before cutover.
 Browser QA script: `node tests/browser-cost.cjs` with installed Playwright/Chromium. It tests 390px and 1366px viewports, all 35 product cards, search/pagination, details/gallery/zoom, errors, overflow, and cache reuse after reopening a page in the same browser context. It does not simulate a month of storage or guarantee cache persistence after eviction.
+
+## 2026-10-15 verification update
+The user confirmed successful preview admin access and a login prompt in private browsing. This is a user-reported authentication check; it does not verify every admin action or prove access without VPN. The previous independent GitHub CI run is https://github.com/7718040-hue/abu-mustafa/actions/runs/38516007310 and the draft review is https://github.com/7718040-hue/abu-mustafa/pull/1. Additional per-file-fingerprint routing changes passed the full local suite and browser tests at 390px/1366px; they are not yet deployed.

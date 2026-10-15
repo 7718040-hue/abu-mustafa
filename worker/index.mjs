@@ -1,5 +1,5 @@
 import { publicMedia } from './media-cache.mjs';
-import { versionedHtml } from './static-assets.mjs';
+import { versionedHtml, relocatedAsset } from './static-assets.mjs';
 import { publicCatalog } from './public-cache.mjs';
 import { readPresentation, saveContactOptions, savePromoCard, deletePromoCard, brandImages } from './presentation.mjs';
 import shell from '../content/site-shell.json';
@@ -18,6 +18,7 @@ async function completeCatalog(env,admin=false){const load=async()=>{const catal
 const reservedReview=new Set(['/report.html','/research-bundle.zip','/image-manifest.json']);
 async function handle(request,env){
   const url=new URL(request.url),path=url.pathname;
+  if(['GET','HEAD'].includes(request.method)){const target=relocatedAsset(path);if(target)return new Response(null,{status:302,headers:{location:target,'cache-control':'no-store','x-robots-tag':'noindex'}});}
   // Serve Google's exact verification file before asset HTML URL normalization.
   if(path==='/google423f0fde26d818a9.html'&&['GET','HEAD'].includes(request.method))return response(request.method==='HEAD'?null:'google-site-verification: google423f0fde26d818a9.html','text/html; charset=utf-8',200,env);
   if(reservedReview.has(path))throw new AppError('هذا المستند داخلي وليس صفحة للزوار.',404);
