@@ -10,6 +10,9 @@ try{
  const product=await read('/products/'+data.products[0].id+'/');assert.equal(product.r.status,200);assert.match(product.body,/application\/ld\+json/);
  for(const path of ['/robots.txt','/sitemap.xml','/llms.txt'])assert.equal((await read(path)).r.status,200);
  const path=home.body.match(/(?:src|href)="(\/static\/[^"?]+)(?:\?[^" ]*)?"/)?.[1];assert.ok(path);const asset=await read(path);assert.equal(asset.r.status,200);assert.match(asset.r.headers.get('cache-control'),/2592000/);
+ const oldPath=path.replace(/^\/static\/[a-f0-9]{24}\//,'/static/'+('0'.repeat(24))+'/');
+ const old=await read(oldPath);assert.equal(old.r.status,302);assert.equal(old.r.headers.get('cache-control'),'no-store');assert.equal(old.r.headers.get('location'),path);
+ assert.equal((await read('/static/'+('0'.repeat(24))+'/api/admin/catalog')).r.status,404);
  const images=[...new Set(data.products.flatMap(p=>p.gallery.map(i=>i.url)))];
  for(const path of images)assert.equal((await read(path)).r.status,200,'public image accessible: '+path);
  for(const path of ['/admin/','/api/admin/catalog']){const {r}=await read(path);assert.ok([302,303,401,403].includes(r.status),'admin must require authentication');if(r.status<400)assert.match(r.headers.get('location')||'',/^https:\/\/still-heart-472a\.cloudflareaccess\.com\//);}
