@@ -1,5 +1,6 @@
 // Updates existing sites only. Never imports a snapshot or replaces business data.
 import {spawnSync} from 'node:child_process';
+import {deploymentEnv} from './deployment-env.mjs';
 import {readFile,mkdir} from 'node:fs/promises';
 const production=process.argv.includes('--production');
 if(!production&&!process.argv.includes('--preview'))throw Error('Choose --preview or --production explicitly');
@@ -10,7 +11,7 @@ const expected=production?['abu-mustafa-cloudflare','033a633e-1d39-4f26-aecf-2a3
 if(config.name!==expected[0]||config.d1_databases[0].database_id!==expected[1])throw Error('Target changed: review deployment configuration');
 if(production&&config.vars.PUBLIC_INDEXING!=='enabled-after-owner-approval')throw Error('Production indexing must be preserved');
 if(!production&&config.vars.PUBLIC_INDEXING!=='disabled')throw Error('Preview must stay noindex');
-const env={...process.env,CI:'true',PUBLIC_ORIGIN:config.vars.PUBLIC_ORIGIN,PUBLIC_INDEXING:config.vars.PUBLIC_INDEXING};
+const env={...deploymentEnv(process.env),CI:'true',PUBLIC_ORIGIN:config.vars.PUBLIC_ORIGIN,PUBLIC_INDEXING:config.vars.PUBLIC_INDEXING};
 const run=args=>{const result=spawnSync(process.execPath,args,{stdio:'inherit',env});if(result.error)throw result.error;if(result.status!==0)process.exit(result.status||1);};
 run(['scripts/deploy-check.mjs','--config',configPath]);
 await mkdir('backups',{recursive:true});
