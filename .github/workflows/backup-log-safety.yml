@@ -1,0 +1,22 @@
+name: Verify backup log safety (no deployment)
+on:
+  push:
+    branches: [verify/backup-log-safety-2026-10-17]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify credential handling
+        run: node tests/deployment-env.test.mjs
+      - name: Verify signed backup URLs never reach success or failure logs
+        run: node tests/safe-cloudflare-export.test.mjs
+      - name: Validate deployment and recovery entry syntax
+        run: |
+          node --check scripts/update-cloudflare.mjs
+          node --check scripts/rollback-cloudflare.mjs

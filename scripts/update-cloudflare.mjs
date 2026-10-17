@@ -1,6 +1,7 @@
 // Updates existing sites only. Never imports a snapshot or replaces business data.
 import {spawnSync} from 'node:child_process';
 import {deploymentEnv} from './deployment-env.mjs';
+import {exportDatabase} from './safe-cloudflare-export.mjs';
 import {readFile,mkdir} from 'node:fs/promises';
 const production=process.argv.includes('--production');
 if(!production&&!process.argv.includes('--preview'))throw Error('Choose --preview or --production explicitly');
@@ -17,7 +18,7 @@ run(['scripts/deploy-check.mjs','--config',configPath]);
 await mkdir('backups',{recursive:true});
 const backup='backups/'+config.name+'-'+new Date().toISOString().replace(/[:.]/g,'-')+'.sql';
 const cli=['node_modules/wrangler/bin/wrangler.js'];
-run([...cli,'d1','export','DB','--remote','--config',configPath,'--output',backup]);
+exportDatabase([...cli,'d1','export','DB','--remote','--config',configPath,'--output',backup],env);
 // The RETURNING-compatible code must be live before revision triggers exist.
 run([...cli,'deploy','--config',configPath]);
 run([...cli,'d1','migrations','apply','DB','--remote','--config',configPath]);
