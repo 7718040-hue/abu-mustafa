@@ -1,0 +1,2 @@
+deployment-data/database.json -text
+deployment-data/objects/* -text

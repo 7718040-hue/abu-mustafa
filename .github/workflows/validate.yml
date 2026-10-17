@@ -1,0 +1,71 @@
+name: Validate website and preview
+on:
+  push:
+    branches: [cost-optimization, cloudflare-hosting]
+  pull_request:
+    branches: [cloudflare-hosting]
+permissions:
+  contents: read
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Verify deployed isolated preview (read only)
+        run: node tests/preview-live.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cost-verification
+          path: |
+            docs/cost-measurements.json
+            docs/preview-live-results.json
+
+  deploy-preview:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/cost-optimization' }}
+    needs: validate
+    environment: preview
+    runs-on: ubuntu-latest
+    concurrency:
+      group: cloudflare-preview-deploy
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Require preview deployment credential
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: test -n "$CLOUDFLARE_API_TOKEN"
+      - name: Refuse an outdated queued deployment
+        shell: bash
+        run: |
+          latest="$(git ls-remote origin refs/heads/cost-optimization | cut -f1)"
+          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
+            echo "Branch advanced or could not be verified. Refusing stale deployment."
+            exit 1
+          fi
+      - name: Update isolated preview and preserve its data
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ac5af3f97bbc70f0367edb6eb261d5fa
+        run: node scripts/update-cloudflare.mjs --preview
+      - name: Verify deployed preview
+        run: node tests/preview-live.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deployed-preview-verification
+          path: docs/preview-live-results.json

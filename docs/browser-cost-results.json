@@ -1,0 +1,25 @@
+{
+  "scope": "Local Chromium, desktop/mobile viewport, public storefront",
+  "results": [
+    {
+      "width": 390,
+      "products": 35,
+      "search": true,
+      "galleryAndZoom": true,
+      "productPage": true,
+      "overflow": false,
+      "errors": [],
+      "cachedRequestsOnReturn": 15
+    },
+    {
+      "width": 1366,
+      "products": 35,
+      "search": true,
+      "galleryAndZoom": true,
+      "productPage": true,
+      "overflow": false,
+      "errors": [],
+      "cachedRequestsOnReturn": 17
+    }
+  ]
+}

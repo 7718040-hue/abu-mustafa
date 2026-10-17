@@ -1,0 +1,32 @@
+{
+  "catalog": {
+    "baseline": {
+      "queries": 8,
+      "rowsRead": 145,
+      "rowsWritten": 0,
+      "r2": 0
+    },
+    "optimized": {
+      "queries": 1,
+      "rowsRead": 1,
+      "rowsWritten": 0,
+      "r2": 0
+    }
+  },
+  "uploadedImage": {
+    "baseline": {
+      "queries": 1,
+      "rowsRead": 1,
+      "rowsWritten": 0,
+      "r2": 1
+    },
+    "optimized": {
+      "queries": 0,
+      "rowsRead": 0,
+      "rowsWritten": 0,
+      "r2": 0
+    }
+  },
+  "fingerprintedAssets": 47,
+  "productionModified": false
+}

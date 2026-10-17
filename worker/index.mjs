@@ -1,20 +1,24 @@
+import { publicMedia } from './media-cache.mjs';
+import { versionedHtml, relocatedAsset } from './static-assets.mjs';
+import { publicCatalog } from './public-cache.mjs';
 import { readPresentation, saveContactOptions, savePromoCard, deletePromoCard, brandImages } from './presentation.mjs';
 import shell from '../content/site-shell.json';
 import { ORIGIN, STORE_NAME, STORE_ADDRESS, can, saveFaq, deleteFaq, savePost, deletePost, readAudit, readTrash, queryAudit, queryTrash, restoreRecord, restoreRecords, AppError, database, ensureCatalog, isAdmin, identity, requireAdmin, requireOwner, mutationGuard, readJson, readCatalog, saveProduct, deleteProduct, bulkProducts, saveCategory, deleteCategory, saveReview, deleteReview, submitPublicReview, readMembers, saveMember, deleteMember, uploadImage, allImages } from './data.mjs';
 import { home, detail, categoryPage, postPage, errorPage, adminPage, indexable, esc } from './render.mjs';
 import {manifest, archiveHead, identity as seoIdentity} from './seo.mjs';
 
-function response(body,type='text/html; charset=utf-8',status=200,env={},privateData=false){return new Response(body,{status,headers:{'content-type':type,'cache-control':'private, no-store','x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin','x-robots-tag':privateData||!indexable(env)?'noindex, nofollow, noarchive':'index, follow, max-image-preview:large','content-security-policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google.com https://*.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self' "}});}
+function response(body,type='text/html; charset=utf-8',status=200,env={},privateData=false){if(type.startsWith('text/html')&&typeof body==='string')body=versionedHtml(body);return new Response(body,{status,headers:{'content-type':type,'cache-control':'private, no-store','x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin','x-robots-tag':privateData||!indexable(env)?'noindex, nofollow, noarchive':'index, follow, max-image-preview:large','content-security-policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google.com https://*.gstatic.com; font-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self' "}});}
 const json=(value,env,status=200)=>response(JSON.stringify(value),'application/json; charset=utf-8',status,env,true);
 const download=(body,type,name,env)=>{const r=response(body,type,200,env,true);r.headers.set('content-disposition',`attachment; filename="${name}"`);return r;};
 const csvCell=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
 function csv(products){const fields=[['id','الرمز'],['name','المنتج'],['category','القسم'],['description','الوصف'],['brand','العلامة'],['size','الحجم'],['price','السعر'],['currency','العملة'],['availability','التوفر'],['url','الصفحة']];return '\uFEFF'+[fields.map(x=>csvCell(x[1])).join(','),...products.map(p=>fields.map(([key])=>csvCell(p[key])).join(','))].join('\r\n');}
 function discovery(products){return products.filter(p=>p.visible&&p.brand&&p.price_minor!==null).map(p=>({item_id:p.id,title:p.name,description:p.description,url:p.url,brand:p.brand,seller_name:seoIdentity.businessName,image_url:p.images[0],additional_image_urls:p.images.slice(1),availability:p.availability,price:p.price+' '+p.currency}));}
 function sitemap(catalog){const items=[{url:ORIGIN+'/',images:[]},...catalog.categories.map(c=>({url:ORIGIN+'/categories/'+c.id+'/',images:[],updated_at:c.updated_at})),...catalog.products,...catalog.posts.map(p=>({url:ORIGIN+'/news/'+p.slug+'/',images:p.image?[ORIGIN+p.image]:[],updated_at:p.updated_at}))];return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+items.map(p=>`<url><loc>${esc(p.url)}</loc>${p.updated_at?`<lastmod>${p.updated_at}</lastmod>`:''}${p.images.map(im=>`<image:image><image:loc>${esc(im)}</image:loc></image:image>`).join('')}</url>`).join('')+'</urlset>';}
-async function completeCatalog(env,admin=false){const catalog=await readCatalog(env,admin);return {...catalog,presentation:await readPresentation(env,catalog.products,admin)};}
+async function completeCatalog(env,admin=false){const load=async()=>{const catalog=await readCatalog(env,admin);return {...catalog,presentation:await readPresentation(env,catalog.products,admin)};};return admin?load():publicCatalog(env,ORIGIN,load);}
 const reservedReview=new Set(['/report.html','/research-bundle.zip','/image-manifest.json']);
 async function handle(request,env){
   const url=new URL(request.url),path=url.pathname;
+  if(['GET','HEAD'].includes(request.method)){const target=relocatedAsset(path);if(target)return new Response(null,{status:302,headers:{location:target,'cache-control':'no-store','x-robots-tag':'noindex'}});}
   // Serve Google's exact verification file before asset HTML URL normalization.
   if(path==='/google423f0fde26d818a9.html'&&['GET','HEAD'].includes(request.method))return response(request.method==='HEAD'?null:'google-site-verification: google423f0fde26d818a9.html','text/html; charset=utf-8',200,env);
   if(reservedReview.has(path))throw new AppError('هذا المستند داخلي وليس صفحة للزوار.',404);
@@ -74,9 +78,11 @@ async function handle(request,env){
   }
   if(path.startsWith('/media/')){
     const id=path.slice(7);if(!/^[a-f0-9-]{36}$/.test(id))throw new AppError('الصورة غير موجودة.',404);
+    return publicMedia(request,env,async()=>{
     const media=await database(env).prepare('SELECT object_key,content_type FROM media WHERE id=?').bind(id).first();if(!media)throw new AppError('الصورة غير موجودة.',404);
     const file=await env.BUCKET.get(media.object_key);if(!file)throw new AppError('الصورة غير متاحة مؤقتًا.',503);
     const result=response(request.method==='HEAD'?null:file.body,media.content_type,200,env);result.headers.set('etag',file.httpEtag);result.headers.set('cache-control','private, max-age=86400');return result;
+    });
   }
   if(path==='/'||path==='/index.html'||path==='/catalog.json'||path==='/products.json'||path==='/catalog.csv'||path==='/sitemap.xml'||path==='/llms.txt'||path.startsWith('/products/')||path.startsWith('/categories/')||path.startsWith('/news/')){
     const catalog=await completeCatalog(env);
