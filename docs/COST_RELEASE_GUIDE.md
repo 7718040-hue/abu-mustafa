@@ -1,52 +1,69 @@
-# Cost optimization and versioned releases
+# Cloudflare cost optimization: current release and recovery
 
-Production has NOT been updated. Current reviewed baseline is Cloudflare version
-`c221817c-9d01-4ee3-9a62-6859705a1832`; source branch `cloudflare-hosting`, commit
-`eef19a39a077f91b2bd6e956041cbc7d5b870b9d`.
+## Published state (verified 2026-10-17)
 
-## Behavior and savings
-- Public static files bypass Worker execution. Each asset has its own content fingerprint, so editing JavaScript preserves unchanged image/font URLs. Requests for missing previous fingerprints fall through to a noncached redirect for known public files only; dynamic catalog/admin routes always run the Worker. Their content-versioned paths allow 30-day browser caching. Original image URLs remain available to crawlers.
-- Public catalog cache stores data only, not identity, admin responses, or HTML. Every request reads a revision row, and D1 triggers invalidate after content edits.
-- Uploaded image edge cache removes repeated D1/R2 reads. An edge cache hit still invokes the Worker; browser cache hits avoid network requests while fresh. Caches can be evicted.
-- HTML remains fresh; prices and availability are not frozen for a month. JSON-LD, SSR product pages, sitemap, catalog feeds, and llms.txt remain supported. No guarantee of AI answer inclusion.
-- Admin and role checks remain uncached. No new recurring service or paid plan was enabled.
-- Local measured warm catalog: 8 queries / 145 rows -> 1 query / 1 row. Cold caches and content edits still require original reads plus revision checks. Content writes add small revision-trigger writes.
-- The sample is not a visitor quota or a guarantee of zero bills. Staging shares the account quotas. R2 overage and account plan must be checked separately.
+Production: https://abu-mustafa-cloudflare.abumustafacenter.workers.dev/
+Admin: https://abu-mustafa-cloudflare.abumustafacenter.workers.dev/admin/
+
+- Cloudflare Worker version: `00bf2b32-0228-423e-9ac0-1770b80ab6f3`, 100% traffic.
+- Deployed source: `332cadcc9008bc2ee59b0cbbb60b1f658daef7af` on `cost-optimization`.
+- Immutable release reference: `v2.1.0-cost-20261017`.
+- Owner explicitly approved production publication after preview testing.
+- Independent production verification: https://github.com/7718040-hue/abu-mustafa/actions/runs/39051418466
+- All 35 public product pages, 47 product images, feeds, public indexing headers/robots, asset caching and the administration authentication boundary passed.
+- All business-table rows were identical in private SQL exports before and after publication. The database contains 37 products in total, of which 35 are public, and 12 uploaded media records.
+- Local ordinary DNS still returns ENOTFOUND. Independent HTTP success does not prove ordinary accessibility on every mobile network. Authenticated production admin mutations were not exercised.
+
+## Behavior and measured savings
+
+- Public static files bypass Worker execution. Per-file fingerprints preserve unchanged image/font URLs across JavaScript updates. Fresh browser copies can be reused for 30 days; a cache eviction or another browser/device still needs a download.
+- Missing old fingerprints redirect only known public assets; administrative and dynamic paths remain protected.
+- Public catalog data is cached; requests read one revision row. D1 triggers invalidate it when content changes. Identity and administration responses are not cached.
+- Uploaded-image edge hits avoid repeated D1/R2 reads but still invoke the Worker. Browser hits avoid network requests while fresh.
+- Local warm-catalog measurement: 8 queries/145 rows -> 1 query/1 row. Warm uploaded image: 1 D1 + 1 R2 -> 0/0. These are workload measurements, not a guaranteed percentage saving for all traffic.
+- Content edits and cold caches require additional work. Revision triggers add small writes. Staging shares account quotas.
+- HTML, prices and availability are not frozen for a month. SSR, JSON-LD, sitemap, catalog feeds and llms.txt remain public. Search indexing and AI answer inclusion are not guaranteed.
 
 ## Isolated preview
-Worker `abu-mustafa-cost-preview`, D1 `0460986f-42b9-4d53-9703-7e9e93fa19e8`, R2 `abu-mustafa-cost-preview-photos`.
-URL: https://abu-mustafa-cost-preview.abumustafacenter.workers.dev/
-Admin: https://abu-mustafa-cost-preview.abumustafacenter.workers.dev/admin/
-Owner-only Cloudflare Access. Preview is noindex; production indexing remains enabled.
-Preview data comes from the validated repository transfer snapshot, not a fresh production export.
 
-## Update and rollback
-1. Work on a branch and pass `npm ci` then `npm test`. Node 24 is used in CI.
-2. Preview updates: `node scripts/update-cloudflare.mjs --preview`.
-3. Review preview, mobile rendering, images, login, owner/supervisor operations and public indexing invariants before production approval.
-4. After approval, merge the reviewed PR to `cloudflare-hosting`, then create a unique tag and GitHub Release (for example a new `v2.1.x` tag). Never move/reuse an existing release tag.
-5. Published non-prerelease GitHub Releases trigger the release workflow. It verifies the commit belongs to `cloudflare-hosting`, retests, exports D1, deploys compatible code BEFORE applying cache triggers, and never imports old business data.
-6. Configure the GitHub `production` environment with a required human reviewer and `CLOUDFLARE_API_TOKEN` secret before enabling releases. The token needs Workers Scripts edit and D1 edit for this Cloudflare account. Enter it in GitHub Settings, never in chat or Git. The reviewer is configured; the deployment secret is still absent.
-7. Emergency rollback to the pre-optimization baseline: `node scripts/rollback-cloudflare.mjs --production --version c221817c-9d01-4ee3-9a62-6859705a1832`.
-   The script exports current D1, removes only cache triggers/table, then rolls back Worker code. It preserves business content and images. Do not use the dashboard rollback alone for this old version: triggers change D1 meta.changes and can break old bulk-operation guards.
-8. Reinstall after rollback with the normal update script. The idempotent revision migration is deliberately rerun even if the migration journal already contains it.
+- URL: https://abu-mustafa-cost-preview.abumustafacenter.workers.dev/
+- Admin: https://abu-mustafa-cost-preview.abumustafacenter.workers.dev/admin/
+- Worker: `abu-mustafa-cost-preview`; last deployed version `00c797b9-c0f5-4fcd-9b2f-6e0268290d00`.
+- D1: `0460986f-42b9-4d53-9703-7e9e93fa19e8`.
+- R2: `abu-mustafa-cost-preview-photos`.
+- Owner-only Cloudflare Access; noindex; separate business data.
+- Preview initialization used the validated repository transfer snapshot. It is not a live synchronized production copy.
 
-D1 export files are in ignored `backups/`. On hosted CI runners these are temporary; D1 Time Travel is a separate recovery mechanism. Download a current backup locally before a reviewed production release and preserve it privately; do not upload private content as a public workflow artifact.
+## Data-preserving updates and code rollback
 
-## Automated preview connection
-Cloudflare currently has no build token in its Builds token list; no auto-deploy connection is claimed.
-Either configure GitHub Actions deployment secrets or connect GitHub from the Cloudflare Worker Settings > Builds page. For preview choose repository `7718040-hue/abu-mustafa`, branch `cost-optimization`, tests `npm test`, deployment command `node scripts/update-cloudflare.mjs --preview`. Do not connect a broad branch wildcard to production.
+Use Node 24 and the project's installed Wrangler. Never import an old business snapshot just to deploy or roll back code.
 
-## Verification limits
-The current local network returns ENOTFOUND for workers.dev; no statement that ordinary mobile access is fixed is justified. DNS/ISP reachability is separate from code optimization. Hosted preview HTTP validation is required before cutover.
-Browser QA script: `node tests/browser-cost.cjs` with installed Playwright/Chromium. It tests 390px and 1366px viewports, all 35 product cards, search/pagination, details/gallery/zoom, errors, overflow, and cache reuse after reopening a page in the same browser context. It does not simulate a month of storage or guarantee cache persistence after eviction.
+1. Match current remote source, test locally and in preview, then get the owner's approval for production.
+2. Preview: `node scripts/update-cloudflare.mjs --preview`.
+3. Production after approval: `node scripts/update-cloudflare.mjs --production`.
+4. The script exports D1, deploys the compatible Worker before cache triggers, applies additive migrations, and reinstalls cache triggers idempotently. It does not replace business data or upload old media.
+5. Verify with `node tests/preview-live.mjs` or `node tests/preview-live.mjs --production`. Hosted execution is needed where ordinary local DNS cannot resolve workers.dev.
+6. To restore the pre-optimization code: `node scripts/rollback-cloudflare.mjs --production --version c221817c-9d01-4ee3-9a62-6859705a1832`.
+7. That rollback first exports current D1, removes only revision-cache triggers/table, then restores the prior Worker. Current products/posts/images remain. The dashboard's code-only rollback is insufficient for this old Worker because revision triggers affect its old bulk-operation counting.
+8. A later forward update reinstalls the cache migration even if the D1 migration journal already records it.
 
-## 2026-10-15 verification update
-The user confirmed successful preview admin access and a login prompt in private browsing. This is a user-reported authentication check; it does not verify every admin action or prove access without VPN. The previous independent GitHub CI run is https://github.com/7718040-hue/abu-mustafa/actions/runs/38516007310 and the draft review is https://github.com/7718040-hue/abu-mustafa/pull/1. Additional per-file-fingerprint routing changes passed the full local suite and browser tests at 390px/1366px; they were deployed to preview version 9a417da1-8fa9-4129-83ed-705fc7456bd6 and independently verified by successful CI run 38691484627.
+The baseline rollback was exercised locally with data-retention checks, not destructively tested in production. Latest private backups are under ignored `backups/`; see `COST_OPTIMIZATION_PROGRESS.md` for exact filenames. Copy them to a separate private device for independent retention. Do not upload raw SQL to public Git or public workflow artifacts.
 
-## Automatic preview activation
-The validation workflow now contains a separate deploy-preview job, after validation. It runs after validation for pushes to cost-optimization only; the preview environment restricts the branch and holds its deployment secret. Pull request code never receives deployment secrets. Configure a preview environment, restrict it to cost-optimization, and put CLOUDFLARE_API_TOKEN there. The owner added CLOUDFLARE_API_TOKEN to the preview environment and confirmed the branch rule allows one branch. Preview deployment activation is now enabled by the next branch push. The job backs up preview D1, updates without importing a snapshot, then checks the deployed site. Deployments are serialized and are not cancelled halfway through migrations.
+## Automation: verified and pending
 
-The production environment has now been created: required reviewer 7718040-hue, administrative bypass disabled. Self-review prevention stays off because the sole owner must be able to approve their own release. No environment deployment secrets have been added; production remains unchanged. Production tag restriction and activation are pending.
+Verified: pushes to `cost-optimization` validate and update preview with its environment secret. Deployment is serialized, stale queued commits are refused, and preview smoke tests run after deployment. The successful deployed-source run is https://github.com/7718040-hue/abu-mustafa/actions/runs/39004524451 .
 
-Queued preview deployments check the latest remote branch commit immediately before updating, and refuse to deploy an older commit. The activation flag remains unset. Browser automation failed while configuring production tag restrictions; their final state is unverified and must be checked before any release.
+Production was published manually from the verified source. PR #1 remains draft; `cloudflare-hosting` has not been merged, and repository default branch is `main`. The existing release-published workflow has not been established as a working production release path on the default branch. Do not claim automatic production releases are enabled.
+
+Before future automatic production releases, finish:
+
+- Persistent private backup upload before mutation; hosted-runner SQL exports alone are temporary.
+- Explicit approved release/ref guards, prevention of stale release jobs, and a verified production credential/approval path.
+- Automatic postdeploy production smoke tests and a saved previous Worker version.
+- Source-branch alignment and unique version tags; never move/reuse release tags.
+
+The repository is currently public. The owner asked whether making it private would work; visibility has not changed. On GitHub Free, private repositories have limited Actions minutes/storage and ignore environment secrets/protection rules. A private/free deployment design must be prepared before converting, or preview automation can fail. Source visibility is independent of the Cloudflare site's public visibility. The encrypted-artifact alternative is also awaiting the owner's choice; no recovery keys have been generated.
+
+## Test scope
+
+Full local regression, failure/race, rollback and per-file-cache tests passed for the published source. Browser tests at 390px/1366px covered product cards, search, pagination, details/gallery/zoom, image decoding, errors, overflow and repeated visits. They do not simulate a month of cache persistence or every physical device/browser.

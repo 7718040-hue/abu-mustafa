@@ -1,4 +1,4 @@
-name: Verify deployed production (read only)
+name: Verify deployed sites (read only)
 on:
   push:
     branches: [verify/production-2026-10-17]
@@ -8,36 +8,18 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Check production products, images, indexing, cache and admin boundary
-        run: |
-          node --input-type=module <<'NODE'
-          import assert from 'node:assert/strict';
-          import {writeFile} from 'node:fs/promises';
-          const origin='https://abu-mustafa-cloudflare.abumustafacenter.workers.dev';
-          const results=[];
-          const read=async path=>{const r=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(30000)});const body=await r.text();results.push({path,status:r.status,robots:r.headers.get('x-robots-tag'),cache:r.headers.get('cache-control')});return {r,body};};
-          try {
-           const home=await read('/');assert.equal(home.r.status,200);assert.ok(!/noindex/.test(home.r.headers.get('x-robots-tag')||''));
-           const catalog=await read('/catalog.json');assert.equal(catalog.r.status,200);const data=JSON.parse(catalog.body);assert.ok(data.products.length>0);
-           for(const p of data.products){const page=await read('/products/'+p.id+'/');assert.equal(page.r.status,200);assert.match(page.body,/application\/ld\+json/);assert.ok(!/noindex/.test(page.r.headers.get('x-robots-tag')||''));}
-           for(const path of ['/robots.txt','/sitemap.xml','/llms.txt']){const page=await read(path);assert.equal(page.r.status,200);if(path==='/robots.txt')assert.ok(!/^Disallow:\s*\/$/m.test(page.body),'public robots must permit catalog crawling');}
-           const path=home.body.match(/(?:src|href)="(\/static\/[^"?]+)(?:\?[^" ]*)?"/)?.[1];assert.ok(path);
-           const asset=await read(path);assert.equal(asset.r.status,200);assert.match(asset.r.headers.get('cache-control'),/2592000/);
-           const oldPath=path.replace(/^\/static\/[a-f0-9]{24}\//,'/static/'+('0'.repeat(24))+'/');
-           const old=await read(oldPath);assert.equal(old.r.status,302);assert.equal(old.r.headers.get('cache-control'),'no-store');assert.equal(old.r.headers.get('location'),path);
-           assert.equal((await read('/static/'+('0'.repeat(24))+'/api/admin/catalog')).r.status,404);
-           const images=[...new Set(data.products.flatMap(p=>p.gallery.map(i=>i.url)))];
-           for(const path of images)assert.equal((await read(path)).r.status,200,'image accessible: '+path);
-           for(const path of ['/admin/','/api/admin/catalog']){const {r}=await read(path);assert.ok([302,303,401,403].includes(r.status),'admin requires authentication');if(r.status<400)assert.match(r.headers.get('location')||'',/^https:\/\/still-heart-472a\.cloudflareaccess\.com\//);}
-           console.log('PASS production: '+data.products.length+' products, '+images.length+' images, feeds, indexing, cache and admin boundary');
-          }finally{await writeFile('production-verification.json',JSON.stringify({origin,checkedAt:new Date().toISOString(),deployedSource:'332cadcc9008bc2ee59b0cbbb60b1f658daef7af',results},null,2));}
-          
-          NODE
+      - name: Verify every preview product, image, indexing and administration boundary
+        run: node tests/preview-live.mjs
+      - name: Verify every production product, image, indexing and administration boundary
+        run: node tests/preview-live.mjs --production
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: production-verification
-          path: production-verification.json
+          name: public-site-verification
+          path: |
+            docs/preview-live-results.json
+            docs/production-live-results.json
